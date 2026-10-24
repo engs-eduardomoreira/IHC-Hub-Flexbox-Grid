@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexbox - Aula de CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+  <header>
+    <h1>Introdução ao Flexbox - Aula de CSS</h1>
+    <a href="index.html">⬅ Voltar ao Hub</a>
+  </header>
+  <main>
+    <section>
+      <h2>O que é o Flexbox?</h2>
+      <p>
+        O <strong>Flexbox</strong> é um modelo de layout <strong>unidimensional</strong>: organiza os elementos
+        em uma <strong>linha</strong> OU em uma <strong>coluna</strong>.
+      </p>
+      <ul>
+        <li><strong>Flex container</strong> — o elemento pai, com <code>display: flex;</code>;</li>
+        <li><strong>Flex items</strong> — os filhos diretos do container.</li>
+      </ul>
+      <p>
+        O <strong>eixo principal</strong> é a direção dos itens (padrão: horizontal) e o
+        <strong>eixo transversal</strong> é perpendicular a ele.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. flex-direction</h2>
+      <p>Define a direção do eixo principal: <code>row</code> (padrão), <code>row-reverse</code>, <code>column</code> e <code>column-reverse</code>.</p>
+      <div class="demo dir-column">
+        <div class="item i1">1</div><div class="item i2">2</div><div class="item i3">3</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. justify-content (eixo principal)</h2>
+      <p>Valores: <code>flex-start</code> (padrão), <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code> e <code>space-evenly</code>. Abaixo, <code>space-between</code>:</p>
+      <div class="demo jc-between">
+        <div class="item i1">1</div><div class="item i2">2</div><div class="item i3">3</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. align-items (eixo transversal)</h2>
+      <p>Valores: <code>stretch</code> (padrão), <code>flex-start</code>, <code>center</code> e <code>flex-end</code>. Abaixo, <code>center</code>:</p>
+      <div class="demo ai-center">
+        <div class="item i1">1</div><div class="item i2">2</div><div class="item i3">3</div>
+      </div>
+      <p>💡 <strong>Centralização perfeita:</strong> <code>justify-content: center;</code> + <code>align-items: center;</code></p>
+    </section>
+
+    <section>
+      <h2>4. gap e flex-wrap</h2>
+      <p>
+        <code>gap</code> cria espaço entre os itens. Com <code>flex-wrap: wrap</code>, os itens que
+        não cabem quebram de linha (o padrão, <code>nowrap</code>, os comprime).
+      </p>
+      <div class="demo wrap-yes">
+        <div class="item largo i1">1</div><div class="item largo i2">2</div><div class="item largo i3">3</div>
+        <div class="item largo i4">4</div><div class="item largo i5">5</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Propriedades dos Itens</h2>
+      <p>
+        <code>flex-grow</code> (quanto o item cresce), <code>flex-shrink</code> (quanto encolhe) e
+        <code>flex-basis</code> (tamanho inicial) se resumem no atalho <code>flex</code>.
+        Com <code>flex: 1;</code>, todos os itens dividem o espaço igualmente.
+      </p>
+      <div class="demo"><div class="item i1 flex-1">flex: 1</div><div class="item i2 flex-1">flex: 1</div><div class="item i3 flex-1">flex: 1</div></div>
+      <p>Também são úteis: <code>align-self</code> (alinha só um item) e <code>order</code> (muda a ordem visual).</p>
+      <div class="demo ai-start"><div class="item i1 ordem-3">1 (order: 3)</div><div class="item i2 self-center">self: center</div><div class="item i3">3</div></div>
+    </section>
+
+    <section>
+      <h2>Aplicação Prática</h2>
+      <p>Menu de navegação e cards responsivos (redimensione a janela para testar):</p>
+      <nav class="menu-exemplo">
+        <span class="logo">MeuSite</span>
+        <ul><li>Início</li><li>Sobre</li><li>Contato</li></ul>
+      </nav>
+      <div class="cards-exemplo">
+        <div class="card-ex">Card 1</div><div class="card-ex">Card 2</div>
+        <div class="card-ex">Card 3</div><div class="card-ex">Card 4</div>
+      </div>
+      <pre><code>
+.menu { display: flex; justify-content: space-between; align-items: center; }
+.cards { display: flex; flex-wrap: wrap; gap: 15px; }
+.card { flex: 1 1 180px; }
+      </code></pre>
+    </section>
+  </main>
+  <footer>
+    <p>Desenvolvido por Prof. Dionatan Inhoato Markiu — © 2025</p>
+  </footer>
+</body>
+</html>

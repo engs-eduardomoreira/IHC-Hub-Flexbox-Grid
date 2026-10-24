@@ -1,0 +1,111 @@
+/* ====== Base ====== */
+ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+pre {
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 10px 15px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+/* ====== Demonstrações ====== */
+.demo {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0 20px;
+}
+
+.item {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.item.largo { width: 160px; }
+
+.i1 { background: #00d8ff; }
+.i2 { background: #ffd700; }
+.i3 { background: #ff7b00; }
+.i4 { background: #7fff00; }
+.i5 { background: #ff6bd5; }
+
+/* flex-direction */
+.dir-column { flex-direction: column; align-items: flex-start; }
+
+/* justify-content */
+.jc-between { justify-content: space-between; }
+
+/* align-items */
+.ai-center,
+.ai-start   { height: 130px; }
+.ai-center  { align-items: center; }
+.ai-start   { align-items: flex-start; }
+
+/* flex-wrap + gap */
+.wrap-yes { flex-wrap: wrap; gap: 10px; }
+
+/* propriedades dos itens */
+.flex-1      { flex: 1; }
+.self-center { align-self: center; }
+.ordem-3     { order: 3; width: 110px; }
+
+/* ====== Aplicação Prática ====== */
+.menu-exemplo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.menu-exemplo .logo {
+    font-weight: bold;
+    color: #00d8ff;
+    font-size: 1.2rem;
+}
+
+.menu-exemplo ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cards-exemplo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.card-ex {
+    flex: 1 1 180px;
+    background: rgba(0,216,255,0.2);
+    border: 1px solid #00d8ff;
+    padding: 30px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .item { width: 55px; height: 55px; font-size: 0.75rem; }
+    .item.largo { width: 120px; }
+    .menu-exemplo { flex-direction: column; gap: 10px; }
+}
