@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grid - Aula de CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+  <header>
+    <h1>Introdução ao Grid - Aula de CSS</h1>
+    <a href="index.html">⬅ Voltar ao Hub</a>
+  </header>
+  <main>
+    <section>
+      <h2>1. O que é o Grid? Colunas e a unidade fr</h2>
+      <p>
+        O <strong>Grid</strong> é um modelo de layout <strong>bidimensional</strong>: organiza os elementos
+        em <strong>linhas E colunas</strong> ao mesmo tempo. O <strong>container</strong> é o pai com
+        <code>display: grid;</code> e os <strong>itens</strong> são seus filhos diretos.
+      </p>
+      <p>
+        As colunas são criadas com <code>grid-template-columns</code>. A unidade <code>fr</code> (fração)
+        divide o espaço livre em partes proporcionais. Abaixo, <code>1fr 2fr 1fr</code>; quando acabam
+        as colunas, os itens criam novas linhas automaticamente.
+      </p>
+      <div class="demo cols-fr">
+        <div class="item i1">1fr</div><div class="item i2">2fr</div><div class="item i3">1fr</div><div class="item i4">4</div><div class="item i5">5</div><div class="item i6">6</div>
+      </div>
+      <pre><code>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>2. repeat() e minmax()</h2>
+      <p>
+        <code>repeat(4, 1fr)</code> equivale a <code>1fr 1fr 1fr 1fr</code>. Com <code>minmax()</code> e
+        <code>auto-fit</code>, o layout fica <strong>responsivo sem media queries</strong>
+        (redimensione a janela). É o recurso usado nos cards do hub!
+      </p>
+      <div class="demo cols-auto">
+        <div class="item i1">1</div><div class="item i2">2</div><div class="item i3">3</div><div class="item i4">4</div><div class="item i5">5</div><div class="item i6">6</div>
+      </div>
+      <pre><code>
+grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      </code></pre>
+    </section>
+    <section>
+      <h2>3. gap e span</h2>
+      <p>
+        O <code>gap</code> cria espaço entre as células. Com <code>grid-column: span 2;</code> o item ocupa
+        2 colunas e, com <code>grid-row: span 2;</code>, 2 linhas. A altura das linhas é definida com
+        <code>grid-template-rows</code>.
+      </p>
+      <div class="demo span-demo">
+        <div class="item i1 span-col-2">span 2 colunas</div><div class="item i2">2</div>
+        <div class="item i3 span-row-2">span 2 linhas</div><div class="item i4">4</div><div class="item i5">5</div><div class="item i6">6</div>
+      </div>
+      <pre><code>
+.container { gap: 10px; }
+.destaque  { grid-column: span 2; }
+      </code></pre>
+    </section>
+    <section>
+      <h2>4. grid-template-areas</h2>
+      <p>
+        Permite "desenhar" o layout com nomes: cada texto entre aspas é uma linha da grade e os itens
+        recebem o nome com <code>grid-area</code>. Para centralizar o conteúdo das células, use
+        <code>place-items: center;</code>.
+      </p>
+      <div class="layout-areas">
+        <div class="a-header">header</div><div class="a-menu">menu</div>
+        <div class="a-conteudo">conteúdo</div><div class="a-footer">footer</div>
+      </div>
+      <pre><code>
+grid-template-columns: 150px 1fr;
+grid-template-areas:
+  "header   header"
+  "menu     conteudo"
+  "footer   footer";
+.a-header { grid-area: header; }   /* e assim por diante */
+      </code></pre>
+    </section>
+  </main>
+  <footer>
+    <p>Desenvolvido por Prof. Dionatan Inhoato Markiu — © 2025</p>
+  </footer>
+</body>
+</html>
